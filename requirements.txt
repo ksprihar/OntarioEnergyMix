@@ -1,0 +1,8 @@
+pandas
+numpy
+seaborn
+plotly
+matplotlib
+nbformat
+requests
+lxml
