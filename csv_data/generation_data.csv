@@ -1,4 +1,4 @@
-month,fuel,energy_gw
+month,fuel,output_gwh
 2015-01-01,NUCLEAR,8489.15
 2015-01-01,GAS,1846.24
 2015-01-01,HYDRO,3567.44

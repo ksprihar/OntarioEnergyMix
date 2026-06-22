@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 import xml.etree.ElementTree as ET
-from io import StringIO
 
 def extract_generation_data(start_year, end_year):
     year_range = range(start_year, end_year + 1)
@@ -26,7 +25,7 @@ def extract_generation_data(start_year, end_year):
                 data_dict = {}
                 data_dict['month'] = item.find('ieso:Month', ns).text
                 data_dict['fuel'] = fuel.find('ieso:Fuel', ns).text
-                data_dict['energy_gw'] = float(fuel.find('ieso:EnergyGW', ns).text)
+                data_dict['output_gwh'] = float(fuel.find('ieso:EnergyGW', ns).text)
 
                 data_list.append(data_dict)
 
@@ -59,11 +58,12 @@ def extract_demand_data(start_year, end_year):
 
         if not df.empty:
             df['Date'] = pd.to_datetime(df['Date'])
+            df['ontario_demand_gw'] = df['Ontario Demand'] / 1000  # Converting MW to GW
             df.rename(columns={'Date': 'month'}, inplace=True)
             df = df.resample('MS', on='month').agg(
-                total_demand=('Ontario Demand', 'sum'),
-                avg_demand=('Ontario Demand', 'mean'),
-                peak_demand=('Ontario Demand', 'max'),
+                total_demand_gwh=('ontario_demand_gw', 'sum'), # Total energy consumption for the month in GWh
+                avg_demand_gw=('ontario_demand_gw', 'mean'), # Average Power demand in GW
+                peak_demand_gw=('ontario_demand_gw', 'max'), # Maximum Power demand over a single hour in the month in GW
             ).reset_index()
 
             df_list.append(df)
