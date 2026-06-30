@@ -25,12 +25,12 @@ services:
       # Mounts both the initialization script and the views script
       - ./sql_scripts/init.sql:/init.sql
       - ./sql_scripts/views.sql:/views.sql
-    # This command waits 15 seconds for SQL Server to boot up,
+    # This command waits 30 seconds for SQL Server to boot up,
     # then automatically executes init.sql and views.sql scripts
     command: >
       bash -c "
         echo 'Waiting for SQL Server to warm up...';
-        sleep 15;
+        sleep 30;
         /opt/mssql-tools/bin/sqlcmd -S sqlserver -U SA -P 'Ontario_Energy_Mix@15_26' -i /init.sql;
         /opt/mssql-tools/bin/sqlcmd -S sqlserver -U SA -P 'Ontario_Energy_Mix@15_26' -d ontario_energy -i /views.sql;
         echo 'Database setup successfully completed!';

@@ -11,7 +11,7 @@ Data sources:
   Generation : https://reports-public.ieso.ca/public/GenOutputbyFuelMonthly/
   Demand     : https://reports-public.ieso.ca/public/Demand/
 
-Run directly to refresh both CSVs:
+Run from the project root directory:
     python data_ingestion.py
 """
 
@@ -100,8 +100,9 @@ def extract_demand_data(start_year, end_year):
     start_year : int
         First year to fetch (inclusive).
     end_year : int
-        Last year to fetch (inclusive). The most recent year will include only
-        published months; the downstream SQL views account for this lag.
+        Last year to fetch (inclusive). The current year will have partial data for the current month;
+        The demand data is more up to date than generation data;
+        the downstream SQL views account for these.
     """
     demand_url = "https://reports-public.ieso.ca/public/Demand/PUB_Demand_{}.csv"
 

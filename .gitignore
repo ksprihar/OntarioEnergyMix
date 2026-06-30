@@ -1,7 +1,6 @@
-#Specific files and folders to be excluded (for testing purposes only)
-prac.py
+# Specific files and folders to be excluded. Local scratch / experimental work
 test/
-sql_scripts/unused
+sql_scripts/test
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -163,6 +162,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Spyder project settings
 .spyderproject
