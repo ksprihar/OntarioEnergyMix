@@ -19,7 +19,7 @@ This project demonstrates an end-to-end analytical workflow: automated data inge
 
 ![Ontario Electricity Generation Mix Shift](img/stacked_area.png)
 
-▶ [View interactive version](https://ksprihar.github.io/OntarioEnergyMix/charts/stacked_area.html)
+▶ [View interactive version](https://ksprihar.github.io/ontario-energy-mix/charts/stacked_area.html)
 
 ---
 
@@ -49,7 +49,7 @@ This project demonstrates an end-to-end analytical workflow: automated data inge
 │   ├── divergence.png          # 2020-2022 crop from Total Generation and Gas Generation chart (referenced in notebook)
 │   └── stacked_area.png        # Annual fuel mix stacked area chart
 ├── docs/                       # GitHub Pages site — interactive (live) versions of every chart
-│   ├── index.html              # Chart index, served at https://ksprihar.github.io/OntarioEnergyMix/
+│   ├── index.html              # Chart index, served at https://ksprihar.github.io/ontario-energy-mix/
 │   └── charts/                 # One standalone interactive Plotly HTML file per chart, written by main.ipynb
 └── sql_scripts/
     ├── init.sql                # Creates DB, tables, and loads CSV data
@@ -71,7 +71,7 @@ This project demonstrates an end-to-end analytical workflow: automated data inge
 
 You do not need to install any dependencies or run any code to read this project. Simply open the [`main.ipynb`](main.ipynb) Jupyter notebook to view the complete narrative analysis and all visualizations directly in your browser on GitHub.
 
-There are 8 plotly charts in this analysis. They have been rendered as a png image in the notebook because Github does not render the plotly javascript charts. But they all have interactive versions — see the [full interactive chart index](https://ksprihar.github.io/OntarioEnergyMix/) or the links under each chart in `main.ipynb`.
+There are 8 plotly charts in this analysis. They have been rendered as a png image in the notebook because Github does not render the plotly javascript charts. But they all have interactive versions — see the [full interactive chart index](https://ksprihar.github.io/ontario-energy-mix/) or the links under each chart in `main.ipynb`.
 
 ---
 
@@ -89,8 +89,8 @@ This project features a fully automated, containerized data pipeline. You do not
 #### Step 1 — Clone the repository
 
 ```bash
-git clone https://github.com/ksprihar/OntarioEnergyMix.git
-cd OntarioEnergyMix
+git clone https://github.com/ksprihar/ontario-energy-mix.git
+cd ontario-energy-mix
 ```
 
 #### Step 2 — Install Python dependencies
