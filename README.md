@@ -21,8 +21,6 @@ This project demonstrates an end-to-end analytical workflow: automated data inge
 
 ▶ [View interactive version](https://ksprihar.github.io/OntarioEnergyMix/charts/stacked_area.html)
 
-There are 8 plotly charts in this analysis, and they all have interactive versions — see the [full interactive chart index](https://ksprihar.github.io/OntarioEnergyMix/) or the links under each chart in [`main.ipynb`](main.ipynb).
-
 ---
 
 ## Tech Stack
@@ -71,7 +69,9 @@ There are 8 plotly charts in this analysis, and they all have interactive versio
 
 ### Tier 1 — Quick View (No Setup Required)
 
-You do not need to install any dependencies or run any code to read this project. Simply click on `main.ipynb` above to view the complete narrative analysis and all visualizations directly in your browser on GitHub.
+You do not need to install any dependencies or run any code to read this project. Simply open the [`main.ipynb`](main.ipynb) Jupyter notebook to view the complete narrative analysis and all visualizations directly in your browser on GitHub.
+
+There are 8 plotly charts in this analysis. They have been rendered as a png image in the notebook because Github does not render the plotly javascript charts. But they all have interactive versions — see the [full interactive chart index](https://ksprihar.github.io/OntarioEnergyMix/) or the links under each chart in `main.ipynb`.
 
 ---
 
@@ -109,7 +109,7 @@ python data_ingestion.py
 
 #### Step 4 — Start the database
 
-This spins up a SQL Server container and automatically creates the database, tables, and views.
+This spins up a SQL Server container and automatically creates the database, tables, and views. Note that `Docker Desktop` should be running in the backgroud.
 
 ```bash
 docker compose up
@@ -120,6 +120,13 @@ Wait for `Database setup successfully completed!` before closing the terminal wi
 #### Step 5 — Run the notebook
 
 Open `main.ipynb` in your IDE or Jupyter and run all cells from top to bottom.
+
+**NOTE**: If you want interactive versions of the chart to be rendered inside the notebook, you will need to comment out the following lines of code in the first code cell:
+```python
+# Comment the following two lines if you want interactive charts in the notebook
+import plotly.io as pio
+pio.renderers.default = 'png'
+```
 
 #### Step 6 — Shut down
 
